@@ -147,62 +147,8 @@ Follow through points 1 and 2 of [this setup](https://github.com/Petlja/PSIML/bl
 2. Copy style images to the default style image directory: `/data/style-images/`
 3. Run `python neural_style_transfer.py --content_img_name <content-img-name> --style_img_name <style-img-name>`
 
-It's that easy. For more advanced usage take a look at the code it's (hopefully) self-explanatory (if you speak Python ^^).
 
-Or take a look at [this accompanying YouTube video](https://www.youtube.com/watch?v=XWMwdkaLFsI), it explains how to use this repo in greater detail.
 
-Just run it! So that you can get something like this: :heart:
-<p align="center">
-<img src="data/examples/taj_mahal/taj_mahal_ben_giles_o_lbfgs_i_content_h_500_m_vgg19_cw_100000.0_sw_30000.0_tv_1.0.jpg" width="615px">
-</p>
-
-### Debugging/Experimenting
-
-Q: L-BFGS can't run on my computer it takes too much GPU VRAM?<br/>
-A: Set Adam as your default and take a look at the code for initial style/content/tv weights you should use as a start point.
-
-Q: Output image looks too much like style image?<br/>
-A: Decrease style weight or take a look at the table of weights (in neural_style_transfer.py), which I've included, that works.
-
-Q: There is too much noise (image is not smooth)?<br/>
-A: Increase total variation (tv) weight (usually by multiples of 10, again the table is your friend here or just experiment yourself).
-
-### Reconstruct image from representation
-
-I've also included a file that will help you better understand how the algorithm works and what the neural net sees.<br/>
-What it does is that it allows you to visualize content **(feature maps)** and style representations **(Gram matrices)**.<br/>
-It will also reconstruct either only style or content using those representations and corresponding model that produces them. <br/> 
-
-Just run this:<br/>
-`reconstruct_image_from_representation.py --should_reconstruct_content <Bool> --should_visualize_representation <Bool>`
-<br/><br/>
-And that's it! --should_visualize_representation if set to True will visualize these for you<br/>
---should_reconstruct_content picks between style and content reconstruction
-
-Here are some feature maps (relu1_1, VGG 19) as well as a Gram matrix (relu2_1, VGG 19) for Van Gogh's famous [starry night](https://en.wikipedia.org/wiki/The_Starry_Night):
-
-<p align="center">
-<img src="data/examples/fms_gram/fm_vgg19_relu1_1_0005_resized.jpg" width="200px">
-<img src="data/examples/fms_gram/fm_vgg19_relu1_1_0046_resized.jpg" width="200px">
-<img src="data/examples/fms_gram/fm_vgg19_relu1_1_0058_resized.jpg" width="200px">
-<img src="data/examples/fms_gram/gram_vgg19_relu2_1_0001.jpg" width="200px">
-</p>
-
-No more dark magic.
-
-## Acknowledgements
-
-I found these repos useful: (while developing this one)
-* [fast_neural_style](https://github.com/pytorch/examples/tree/master/fast_neural_style) (PyTorch, feed-forward method)
-* [neural-style-tf](https://github.com/cysmith/neural-style-tf/) (TensorFlow, optimization method)
-* [neural-style](https://github.com/anishathalye/neural-style/) (TensorFlow, optimization method)
-
-I found some of the content/style images I was using here:
-* [style/artistic images](https://www.rawpixel.com/board/537381/vincent-van-gogh-free-original-public-domain-paintings?sort=curated&mode=shop&page=1)
-* [awesome figures pic](https://www.pexels.com/photo/action-android-device-electronics-595804/)
-* [awesome bridge pic](https://www.pexels.com/photo/gray-bridge-and-trees-814499/)
-
-Other images are now already classics in the NST world.
 
 ## Citation
 
