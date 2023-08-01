@@ -108,6 +108,7 @@ def neural_style_transfer(config):
 
         def closure():
             nonlocal cnt
+            # check if the optimizing_img requires grad
             if torch.is_grad_enabled():
                 optimizer.zero_grad()
             total_loss, content_loss, style_loss, tv_loss = build_loss(neural_net, optimizing_img, target_representations, content_feature_maps_index_name[0], style_feature_maps_indices_names[0], config)
@@ -144,8 +145,8 @@ if __name__ == "__main__":
     parser.add_argument("--style_img_name", type=str, help="style image name", default='vg_starry_night.jpg')
     parser.add_argument("--height", type=int, help="height of content and style images", default=400)
 
-    parser.add_argument("--content_weight", type=float, help="weight factor for content loss", default=1e5)
-    parser.add_argument("--style_weight", type=float, help="weight factor for style loss", default=3e4)
+    parser.add_argument("--content_weight", type=float, help="weight factor for content loss", default=1e4)
+    parser.add_argument("--style_weight", type=float, help="weight factor for style loss", default=3e2)
     parser.add_argument("--tv_weight", type=float, help="weight factor for total variation loss", default=1e0)
 
     parser.add_argument("--optimizer", type=str, choices=['lbfgs', 'adam'], default='lbfgs')

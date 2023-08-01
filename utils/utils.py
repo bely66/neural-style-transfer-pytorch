@@ -40,6 +40,7 @@ def load_image(img_path, target_shape=None):
 def prepare_img(img_path, target_shape, device):
     img = load_image(img_path, target_shape=target_shape)
 
+
     # normalize using ImageNet's mean
     # [0, 255] range worked much better for me than [0, 1] range (even though PyTorch models were trained on latter)
     transform = transforms.Compose([

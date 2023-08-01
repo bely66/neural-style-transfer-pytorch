@@ -1,12 +1,8 @@
-## Neural Style Transfer (optimization method) :computer: + :art: = :heart:
+This repo is my implementation of NST, following the paper and Aleksa Video and Repo (See the Citation).
+
+## Neural Style Transfer (optimization method):
 This repo contains a concise PyTorch implementation of the original NST paper (:link: [Gatys et al.](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Gatys_Image_Style_Transfer_CVPR_2016_paper.pdf)).
 
-It's an accompanying repository for [this video series on YouTube](https://www.youtube.com/watch?v=S78LQebx6jo&list=PLBoQnSflObcmbfshq9oNs41vODgXG-608).
-
-<p align="left">
-<a href="https://www.youtube.com/watch?v=S78LQebx6jo" target="_blank"><img src="https://img.youtube.com/vi/S78LQebx6jo/0.jpg" 
-alt="NST Intro" width="480" height="360" border="10" /></a>
-</p>
 
 ### What is NST algorithm?
 The algorithm transfers style from one input image (the style image) onto another input image (the content image) using CNN nets (usually VGG-16/19) and gives a composite, stylized image out which keeps the content from the content image but takes the style from the style image.
@@ -16,10 +12,6 @@ The algorithm transfers style from one input image (the style image) onto anothe
 <img src="data/examples/bridge/content_style.jpg" width="260"/>
 </p>
 
-### Why yet another NST repo?
-It's the **cleanest and most concise** NST repo that I know of + it's written in **PyTorch!** :heart:
-
-Most of NST repos were written in TensorFlow (before it even had L-BFGS optimizer) and torch (obsolete framework, used Lua) and are overly complicated often times including multiple functionalities (video, static image, color transfer, etc.) in 1 repo and exposing 100 parameters over command-line (out of which maybe 5 or 6 may actually be used on a regular basis).
 
 ## Examples
 
@@ -214,8 +206,6 @@ Other images are now already classics in the NST world.
 
 ## Citation
 
-If you find this code useful for your research, please cite the following:
-
 ```
 @misc{Gordić2020nst,
   author = {Gordić, Aleksa},
@@ -226,14 +216,3 @@ If you find this code useful for your research, please cite the following:
   howpublished = {\url{https://github.com/gordicaleksa/pytorch-neural-style-transfer}},
 }
 ```
-
-## Connect with me
-
-If you'd love to have some more AI-related content in your life :nerd_face:, consider:
-* Subscribing to my YouTube channel [The AI Epiphany](https://www.youtube.com/c/TheAiEpiphany) :bell:
-* Follow me on [LinkedIn](https://www.linkedin.com/in/aleksagordic/) and [Twitter](https://twitter.com/gordic_aleksa) :bulb:
-* Follow me on [Medium](https://gordicaleksa.medium.com/) :books: :heart:
-
-## Licence
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/gordicaleksa/pytorch-neural-style-transfer/blob/master/LICENCE)

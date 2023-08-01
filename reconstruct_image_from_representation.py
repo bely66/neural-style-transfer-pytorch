@@ -142,6 +142,7 @@ if __name__ == "__main__":
     #
     # fixed args - don't change these unless you have a good reason (default img locations and img dump format)
     #
+    print("Torch Device:", torch.device("cuda" if torch.cuda.is_available() else "cpu"))
     default_resource_dir = os.path.join(os.path.dirname(__file__), 'data')
     content_images_dir = os.path.join(default_resource_dir, 'content-images')
     style_images_dir = os.path.join(default_resource_dir, 'style-images')
@@ -152,8 +153,8 @@ if __name__ == "__main__":
     # modifiable args - feel free to play with these (only small subset is exposed by design to avoid cluttering)
     #
     parser = argparse.ArgumentParser()
-    parser.add_argument("--should_reconstruct_content", type=bool, help="pick between content or style image reconstruction", default=True)
-    parser.add_argument("--should_visualize_representation", type=bool, help="visualize feature maps or Gram matrices", default=False)
+    parser.add_argument("--should_reconstruct_content", type=bool, help="pick between content or style image reconstruction", default=False)
+    parser.add_argument("--should_visualize_representation", type=bool, help="visualize feature maps or Gram matrices", default=True)
 
     parser.add_argument("--content_img_name", type=str, help="content image name", default='lion.jpg')
     parser.add_argument("--style_img_name", type=str, help="style image name", default='ben_giles.jpg')
@@ -176,5 +177,6 @@ if __name__ == "__main__":
 
     # reconstruct style or content image purely from their representation
     results_path = reconstruct_image_from_representation(optimization_config)
+    print(f'Intermediate results saved in: {results_path}')
 
     # create_video_from_intermediate_results(results_path, img_format)

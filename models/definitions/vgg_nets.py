@@ -173,7 +173,7 @@ class Vgg19(torch.nn.Module):
         else:
             self.layer_names = ['conv1_1', 'conv2_1', 'conv3_1', 'conv4_1', 'conv4_2', 'conv5_1']
             self.offset = 0
-        self.content_feature_maps_index = 4  # conv4_2
+        self.content_feature_maps_index = 1  # conv4_2
         # all layers used for style representation except conv4_2
         self.style_feature_maps_indices = list(range(len(self.layer_names)))
         self.style_feature_maps_indices.remove(4)  # conv4_2
